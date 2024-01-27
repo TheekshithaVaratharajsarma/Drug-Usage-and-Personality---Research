@@ -1,0 +1,273 @@
+---
+title: "RESEARCH"
+author: "COADDS221F009"
+date: "2023-03-31"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+data <- read.csv('drug_and_personality.csv')
+data
+```
+
+OBJECTIVE 03 - Data Visualizations
+
+```{r}
+# function to format labels with percentage
+format_pct <- function(x) {
+  paste0(formatC(100*x, format = "f", digits = 1), "%")
+}
+
+# cannabis users
+cannabis_users <- subset(data, Cannabis == 2)
+gender_table <- table(cannabis_users$Sex)
+gender_labels <- c("Male", "Female")
+pie(gender_table, labels = paste0(gender_labels, "\n", format_pct(prop.table(gender_table))), 
+    main = "Gender Distribution among Cannabis Users")
+
+# amphetamine users
+amphetamine_users <- subset(data, Amphetamine == 2)
+gender_table <- table(amphetamine_users$Sex)
+gender_labels <- c("Male", "Female")
+pie(gender_table, labels = paste0(gender_labels, "\n", format_pct(prop.table(gender_table))), 
+    main = "Gender Distribution among Amphetamine Users")
+
+# ecstasy users
+ecstasy_users <- subset(data, Ecstasy == 2)
+gender_table <- table(ecstasy_users$Sex)
+pie(gender_table, labels = paste0(gender_labels, "\n", format_pct(prop.table(gender_table))), 
+    main = "Gender Distribution among Ecstasy Users")
+
+# LSD users
+lsd_users <- subset(data, LSD == 2)
+gender_table <- table(lsd_users$Sex)
+pie(gender_table, labels = paste0(gender_labels, "\n", format_pct(prop.table(gender_table))), 
+    main = "Gender Distribution among LSD Users")
+
+# mushrooms users
+mushrooms_users <- subset(data, Mushrooms == 2)
+gender_table <- table(mushrooms_users$Sex)
+pie(gender_table, labels = paste0(gender_labels, "\n", format_pct(prop.table(gender_table))), 
+    main = "Gender Distribution among Mushrooms Users")
+
+# ketamine users
+ketamine_users <- subset(data, Ketamine == 2)
+gender_table <- table(ketamine_users$Sex)
+pie(gender_table, labels = paste0(gender_labels, "\n", format_pct(prop.table(gender_table))), 
+    main = "Gender Distribution among Ketamine Users")
+
+# cocaine users
+cocaine_users <- subset(data, Cocaine == 2)
+gender_table <- table(cocaine_users$Sex)
+pie(gender_table, labels = paste0(gender_labels, "\n", format_pct(prop.table(gender_table))), 
+    main = "Gender Distribution among Cocaine Users")
+
+```
+
+```{r}
+attach(data)
+Gen.drug.freq=table(Sex,fre_cannabis)
+Gen.drug.freq
+
+rownames(Gen.drug.freq) <- c("Male","Female")
+bar_colors <- c("skyblue", "lavender")
+
+barplot(Gen.drug.freq, beside = FALSE, col = bar_colors, 
+        legend = rownames(Gen.drug.freq), 
+        main = "Barplot of cannabis user frequency with gender", 
+        xlab = "Usage", 
+        ylab = "Number of users",
+        names.arg = c("Not at all","Every 3 months","Upto once a month","2-3 times a month","1-2 times a week","3-4 times a week","Almost  daily","Daily","Several times daily")
+)
+```
+```{r}
+Gen.drug.freq=table(Sex,fre_amphetamine)
+Gen.drug.freq
+
+rownames(Gen.drug.freq) <- c("Male","Female")
+
+barplot(Gen.drug.freq, beside = FALSE, col = bar_colors, 
+        legend = rownames(Gen.drug.freq), 
+        main = "Barplot of amphetamine user frequency with gender", 
+        xlab = "Usage", 
+        ylab = "Number of users",
+        names.arg = c("Not at all","Every 3 months","Upto once a month","2-3 times a month","1-2 times a week","3-4 times a week")
+)
+```
+```{r}
+Gen.drug.freq=table(Sex,fre_Ecstasy)
+Gen.drug.freq
+
+rownames(Gen.drug.freq) <- c("Male","Female")
+
+barplot(Gen.drug.freq, beside = FALSE, col = bar_colors, 
+        legend = rownames(Gen.drug.freq), 
+        main = "Barplot of ecstasy user frequency with gender", 
+        xlab = "Usage", 
+        ylab = "Number of users",
+        names.arg = c("Not at all","Every 3 months","Upto once a month","2-3 times a month","1-2 times a week","3-4 times a week","Almost daily")
+)
+```
+
+
+```{r}
+Gen.drug.freq=table(Sex,fre_LSD)
+Gen.drug.freq
+
+rownames(Gen.drug.freq) <- c("Male","Female")
+
+barplot(Gen.drug.freq, beside = FALSE, col = bar_colors, 
+        legend = rownames(Gen.drug.freq), 
+        main = "Barplot of LSD user frequency with gender", 
+        xlab = "Usage", 
+        ylab = "Number of users",
+        names.arg = c("Not at all","Every 3 months","Upto once a month","2-3 times a month","1-2 times a week","3-4 times a week")
+)
+```
+
+
+```{r}
+Gen.drug.freq=table(Sex,fre_mushrooms)
+Gen.drug.freq
+
+rownames(Gen.drug.freq) <- c("Male","Female")
+
+barplot(Gen.drug.freq, beside = FALSE, col = bar_colors, 
+        legend = rownames(Gen.drug.freq), 
+        main = "Barplot of mushrooms user frequency with gender", 
+        xlab = "Usage", 
+        ylab = "Number of users",
+        names.arg = c("Not at all","Every 3 months","Upto once a month","2-3 times a month","1-2 times a week")
+)
+```
+
+```{r}
+Gen.drug.freq=table(Sex,fre_ketamine)
+Gen.drug.freq
+
+rownames(Gen.drug.freq) <- c("Male","Female")
+
+barplot(Gen.drug.freq, beside = FALSE, col = bar_colors, 
+        legend = rownames(Gen.drug.freq), 
+        main = "Barplot of ketamine user frequency with gender", 
+        xlab = "Usage", 
+        ylab = "Number of users",
+        names.arg = c("Not at all","Every 3 months","Upto once a month","2-3 times a month","1-2 times a week","3-4 times a week","Almost daily")
+)
+```
+```{r}
+Gen.drug.freq=table(Sex,fre_cocaine)
+Gen.drug.freq
+
+rownames(Gen.drug.freq) <- c("Male","Female")
+
+barplot(Gen.drug.freq, beside = FALSE, col = bar_colors, 
+        legend = rownames(Gen.drug.freq), 
+        main = "Barplot of cocaine user frequency with gender", 
+        xlab = "Usage", 
+        ylab = "Number of users",
+        names.arg = c("Not at all","Every 3 months","Upto once a month","2-3 times a month","1-2 times a week","Almost daily")
+)
+```
+```{r}
+Gen.drug.freq=table(Sex,fre_alcohol)
+Gen.drug.freq
+
+rownames(Gen.drug.freq) <- c("Male","Female")
+
+barplot(Gen.drug.freq, beside = FALSE, col = bar_colors, 
+        legend = rownames(Gen.drug.freq), 
+        main = "Barplot of alcohol user frequency with gender", 
+        xlab = "Usage", 
+        ylab = "Number of users",
+        names.arg = c("Not at all","Once a month","2-3 times a month","Once a week","2-3 times a week","More than 4 times a week")
+)
+```
+
+
+```{r}
+Gen.drug.freq=table(Sex,fre_psychotropics)
+Gen.drug.freq
+
+rownames(Gen.drug.freq) <- c("Male","Female")
+
+barplot(Gen.drug.freq, beside = FALSE, col = bar_colors, 
+        legend = rownames(Gen.drug.freq), 
+        main = "Barplot of psychotropic user frequency with gender", 
+        xlab = "Usage", 
+        ylab = "Number of users",
+        names.arg = c("Not at all","Every 3 months","Upto once a month","2-3 times a month")
+)
+```
+
+```{r}
+Gen.drug.freq=table(Sex,fre_tranquilizers)
+Gen.drug.freq
+
+rownames(Gen.drug.freq) <- c("Male","Female")
+
+barplot(Gen.drug.freq, beside = FALSE, col = bar_colors,
+        legend = rownames(Gen.drug.freq), 
+        main = "Barplot of tranquilizer user frequency with gender", 
+        xlab = "Usage", 
+        ylab = "Number of users",
+        names.arg = c("Not at all","Every 3 months","Upto once a month","2-3 times a month","3-4 times a week")
+)
+```
+OBJECTIVE 04 - Chi-Squared Test
+
+```{r}
+attach(data)
+
+test1 <- chisq.test(table(Cannabis,Ecstasy))
+test2 <- chisq.test(table(Cannabis,Amphetamine))
+test3 <- chisq.test(table(Cannabis,LSD))
+test4 <- chisq.test(table(Cannabis,Mushrooms))
+test5 <- chisq.test(table(Cannabis,Ketamine))
+test6 <- chisq.test(table(Cannabis,Cocaine))
+
+test1
+test2
+test3
+test4
+test5
+test6
+```
+
+```{r}
+test1 <- chisq.test(table(Ecstasy,Cannabis))
+test2 <- chisq.test(table(Ecstasy,Amphetamine))
+test3 <- chisq.test(table(Ecstasy,LSD))
+test4 <- chisq.test(table(Ecstasy,Mushrooms))
+test5 <- chisq.test(table(Ecstasy,Ketamine))
+test6 <- chisq.test(table(Ecstasy,Cocaine))
+
+test1
+test2
+test3
+test4
+test5
+test6
+```
+
+```{r}
+test1 <- chisq.test(table(Amphetamine,Ecstasy))
+test2 <- chisq.test(table(Amphetamine,Cannabis))
+test3 <- chisq.test(table(Amphetamine,LSD))
+test4 <- chisq.test(table(Amphetamine,Mushrooms))
+test5 <- chisq.test(table(Amphetamine,Ketamine))
+test6 <- chisq.test(table(Amphetamine,Cocaine))
+
+test1
+test2
+test3
+test4
+test5
+test6
+```
