@@ -1,7 +1,5 @@
 # Drug-Usage-and-Personality---Research
-Exploring and evaluating the personality traits associated with substance abuse in young people - A statistical research project
-
-![Picture1](https://github.com/TheekshithaVaratharajsarma/Drug-Usage-and-Personality---Research/assets/129731048/c1904690-9dd4-4b19-ae18-1b4dfebdebbc)
+![image](https://github.com/TheekshithaVaratharajsarma/Drug-Usage-and-Personality---Research/assets/129731048/4a887914-24f6-4f6e-8fb8-021fc00cd4ea)
 
 This research report explores and analyzes substance abuse, especially in youngsters, investigating and differentiating between different drugs and the effects they impose with the focus on personality traits and intelligence quotient. It analyses whether people use various drugs and if yes, the frequency of their usage. It explores whether these substance usages impact a person’s personality traits and IQ scores. It also explores whether drugs have different effects on different people. The inter-dependencies of one drug to another, as well as the usage pattern of different drugs based on gender, age and frequency levels have also been examined and visualized.
 
